@@ -1,20 +1,20 @@
-echo "Adding 32-bit architecture..."
+echo "Adding 32-bit package support..."
 sudo dpkg --add-architecture i386 
 echo "Adding WineHQ repository key..."
-wget -nc https://dl.winehq.org/wine-builds/winehq.key
+sudo wget -nc https://dl.winehq.org/wine-builds/winehq.key
 sudo apt-key add winehq.key
 echo "Adding WineHQ repository..."
 sudo add-apt-repository 'deb https://dl.winehq.org/wine-builds/ubuntu/ bionic main'
-echo "Updating packages..."
+echo "Updating package list..."
 sudo apt update
 echo "Adding FAudio repository key..."
 wget -nc https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/Release.key
 sudo apt-key add Release.key
 echo "Adding FAudio repository..."
 sudo add-apt-repository 'deb https://download.opensuse.org/repositories/Emulators:/Wine:/Debian/xUbuntu_18.04/ ./'
-echo "Updating packages (again)..."
+echo "Updating package list (again)..."
 sudo apt update
-PS3="Which version of Wine would you like to install?: "
+PS3="Which branch of Wine would you like to install?: "
 
 select opt in Wine-Stable Wine-Development Wine-Staging; do
 
